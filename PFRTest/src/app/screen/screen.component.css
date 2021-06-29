@@ -1,0 +1,37 @@
+button {
+  display: block;
+  margin: 4px auto 0;
+}
+
+.title {
+  margin-top: 15px;
+}
+
+.post-content {
+  display: flex;
+  margin: 28px auto 32px;
+  padding: 0 16px;
+  max-width: 500px;
+  flex-direction: column;
+  align-items: center;
+}
+
+table.my-table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+thead.my-table.headers tr th {
+  border: white solid 3px;
+  background-color: #65b0ba;
+  color: white;
+  height: 25px;
+}
+
+tbody.my-table.body tr td {
+  border: #51ac9f solid 1px;
+  border-left: none;
+  height: 25px;
+}

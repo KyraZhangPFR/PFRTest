@@ -1,0 +1,45 @@
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #71ded9;
+  color: white;
+  font-weight: 600;
+}
+
+.top-title {
+  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.sidebar-title {
+  margin-top: 15px;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sidebar{
+  position: absolute;
+  top: 60px;
+  left: 80%;
+  right: 0;
+  height: 100%;
+  display: flex;
+  background-color: #a5e5dc;
+  color: #2a2424;
+  font-weight: 600;
+  align-items: flex-start;
+}
