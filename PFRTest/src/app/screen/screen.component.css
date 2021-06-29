@@ -7,9 +7,14 @@ button {
   margin-top: 15px;
 }
 
+.dropdown{
+  color: #62867b;
+  border-color: #52998f;
+}
+
 .post-content {
   display: flex;
-  margin: 28px auto 32px;
+  margin: 20px auto 32px;
   padding: 0 16px;
   max-width: 500px;
   flex-direction: column;
@@ -24,14 +29,10 @@ table.my-table {
 }
 
 thead.my-table.headers tr th {
-  border: white solid 3px;
-  background-color: #65b0ba;
+  background-color: #60a37b;
   color: white;
-  height: 25px;
 }
 
 tbody.my-table.body tr td {
-  border: #51ac9f solid 1px;
-  border-left: none;
-  height: 25px;
+  border: #9ab8b3 solid 1px;
 }

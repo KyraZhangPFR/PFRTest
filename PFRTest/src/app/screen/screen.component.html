@@ -1,15 +1,16 @@
 <!--User drop down list-->
 <div class="row title">
-<h1>Please choose a user</h1>
+<h2>Please choose a user</h2>
 </div>
   <div ngbDropdown
-       class="d-inline-block">
+       class="d-inline-block dropdown">
     <button ngbDropdownToggle
             id="users"
-            class="btn btn-outline-primary"
+            class="btn btn-outline dropdown"
     >Users</button>
-    <div ngbDropdownMenu aria-labelledby="users">
+    <div ngbDropdownMenu aria-labelledby="users" class="dropdown">
       <button ngbDropdownItem
+              class="dropdown"
               *ngFor="let user of users"
               (click)="navToUserPost(user.id)">{{user.name}}</button>
     </div>
