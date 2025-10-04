@@ -13,7 +13,23 @@
 
 <!--Sidebar on right-->
 <div class="sidebar">
-  <div class = "sidebar-title">
-    <h1>SideBar</h1>
+  <div class="sidebar-content">
+    <div class="sidebar-title">
+      <h1>Posts</h1>
+    </div>
+    <!-- Selected user info -->
+    <div *ngIf="screen && screen.selectedUser" class="selected-user">
+      <h3>Selected User:</h3>
+      <div class="user-name">{{screen.selectedUser.name}}</div>
+    </div>
+    <!-- Posts will be displayed here when a user is selected -->
+    <div *ngIf="screen && screen.userPosts" class="sidebar-posts">
+      <div *ngFor="let post of screen.userPosts" 
+           class="post-title-item"
+           (click)="screen.postContent(post)"
+           [class.active]="post === screen.postSelected">
+        {{post.title}}
+      </div>
+    </div>
   </div>
 </div>
