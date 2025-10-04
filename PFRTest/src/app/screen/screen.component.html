@@ -5,7 +5,9 @@
 <div ngbDropdown class="d-inline-block dropdown">
   <button ngbDropdownToggle
           id="users"
-          class="btn btn-outline dropdown">Users</button>
+          class="btn btn-outline dropdown">
+    {{selectedUser ? selectedUser.name : 'Select a User'}}
+  </button>
   <div ngbDropdownMenu aria-labelledby="users" class="dropdown">
     <button ngbDropdownItem
             class="dropdown"

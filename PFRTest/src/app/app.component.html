@@ -17,11 +17,6 @@
     <div class="sidebar-title">
       <h1>Posts</h1>
     </div>
-    <!-- Selected user info -->
-    <div *ngIf="screen && screen.selectedUser" class="selected-user">
-      <h3>Selected User:</h3>
-      <div class="user-name">{{screen.selectedUser.name}}</div>
-    </div>
     <!-- Posts will be displayed here when a user is selected -->
     <div *ngIf="screen && screen.userPosts" class="sidebar-posts">
       <div *ngFor="let post of screen.userPosts" 
