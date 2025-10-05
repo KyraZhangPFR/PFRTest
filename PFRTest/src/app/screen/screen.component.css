@@ -36,3 +36,77 @@ thead.my-table.headers tr th {
 tbody.my-table.body tr td {
   border: #9ab8b3 solid 1px;
 }
+
+.comments-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.comment-item {
+  background-color: #f5f9f8;
+  border-left: 3px solid #60a37b;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.comment-header {
+  margin-bottom: 8px;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #2c5f4f;
+}
+
+.comment-email {
+  color: #62867b;
+  font-size: 0.9em;
+  margin-left: 8px;
+}
+
+.comment-body {
+  color: #333;
+  line-height: 1.6;
+}
+
+.add-comment-section {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.add-comment-section h3 {
+  color: #2c5f4f;
+  margin-bottom: 15px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9ab8b3;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #60a37b;
+}
+
+.add-comment-btn {
+  background-color: #60a37b;
+  border-color: #52998f;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-comment-btn:hover {
+  background-color: #52998f;
+}
