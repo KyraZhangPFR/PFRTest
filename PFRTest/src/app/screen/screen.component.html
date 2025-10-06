@@ -1,42 +1,23 @@
 <!--User drop down list-->
-<div class="row title">
-<h2>Please choose a user</h2>
+<div class="title">
+  <h2>Please choose a user</h2>
 </div>
-  <div ngbDropdown
-       class="d-inline-block dropdown">
-    <button ngbDropdownToggle
-            id="users"
-            class="btn btn-outline dropdown"
-    >Users</button>
-    <div ngbDropdownMenu aria-labelledby="users" class="dropdown">
-      <button ngbDropdownItem
-              class="dropdown"
-              *ngFor="let user of users"
-              (click)="navToUserPost(user.id)">{{user.name}}</button>
-    </div>
-</div>
-
-<!--User post lists table based on User selected-->
-<div  *ngIf = "userPosts" class = "title">
-  <h2>Select User Posts</h2>
-
-  <table class="my-table">
-    <thead class="my-table headers">
-    <tr>
-      <th>Post titles</th>
-    </tr>
-    </thead>
-    <tbody class="my-table body">
-    <tr my-active *ngFor="let post of userPosts; index as rowIndex">
-      <td (click)="postContent(post)" [ngClass]="{last: rowIndex === (userPosts.length - 1) }">{{post.title}}</td>
-    </tr>
-    </tbody>
-  </table>
+<div ngbDropdown class="d-inline-block dropdown">
+  <button ngbDropdownToggle
+          id="users"
+          class="btn btn-outline dropdown">
+    {{selectedUser ? selectedUser.name : 'Select a User'}}
+  </button>
+  <div ngbDropdownMenu aria-labelledby="users" class="dropdown">
+    <button ngbDropdownItem
+            class="dropdown"
+            *ngFor="let user of users"
+            (click)="navToUserPost(user.id)">{{user.name}}</button>
+  </div>
 </div>
 
 <!--show post content-->
-<div *ngIf = "postSelected" class="title">
-  <h2> Post Details </h2>
-    <div class = "post-content"
-    >{{postSelected.body}}</div>
+<div *ngIf="postSelected" class="title">
+  <h2>Post Details</h2>
+  <div class="post-content">{{postSelected.body}}</div>
 </div>

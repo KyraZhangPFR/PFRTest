@@ -35,15 +35,39 @@
   align-items: flex-start;
 }
 
-.sidebar{
+.sidebar {
   position: absolute;
   top: 100px;
   left: 80%;
   right: 0;
-  height: 1000px;
-  display: flex;
+  height: calc(100vh - 100px);
   background-color: #94ac9e;
   color: #f5efef;
   font-weight: 600;
-  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.sidebar-content {
+  padding: 15px;
+  width: 100%;
+}
+
+.sidebar-posts {
+  margin-top: 15px;
+}
+
+.post-title-item {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.post-title-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.post-title-item.active {
+  background-color: #62867b;
 }

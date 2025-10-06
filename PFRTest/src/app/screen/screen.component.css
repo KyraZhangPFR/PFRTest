@@ -1,13 +1,13 @@
+.title {
+  margin-top: 15px;
+}
+
 button {
   display: block;
   margin: 4px auto 0;
 }
 
-.title {
-  margin-top: 15px;
-}
-
-.dropdown{
+.dropdown {
   color: #62867b;
   border-color: #52998f;
 }
@@ -15,24 +15,9 @@ button {
 .post-content {
   display: flex;
   margin: 20px auto 32px;
-  padding: 0 16px;
-  max-width: 500px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   flex-direction: column;
-  align-items: center;
-}
-
-table.my-table {
-  border: none;
-  border-collapse: collapse;
-  width: 100%;
-  text-align: center;
-}
-
-thead.my-table.headers tr th {
-  background-color: #60a37b;
-  color: white;
-}
-
-tbody.my-table.body tr td {
-  border: #9ab8b3 solid 1px;
 }
