@@ -32,7 +32,7 @@ export class ScreenComponent implements OnInit {
     });
   }
   // Get post content by the title selected
-  postContent(post){
+  postContent(post: any){
     this.postSelected = post;
   }
 }
