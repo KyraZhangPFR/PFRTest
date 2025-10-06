@@ -11,6 +11,7 @@ export class ScreenComponent implements OnInit {
   userPosts: any;
   postSelected: any;
   selectedUser: any;
+  postComments: any[] = [];
 
   constructor(private http : HttpClient,) { }
 
@@ -34,5 +35,13 @@ export class ScreenComponent implements OnInit {
   // Get post content by the title selected
   postContent(post: any){
     this.postSelected = post;
+    this.loadComments(post.id);
+  }
+
+  // Load comments for the selected post
+  loadComments(postId: number) {
+    this.http.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`).subscribe(comments => {
+      this.postComments = comments as any[];
+    });
   }
 }
