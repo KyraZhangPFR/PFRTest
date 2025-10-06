@@ -11,6 +11,8 @@ export class ScreenComponent implements OnInit {
   userPosts: any;
   postSelected: any;
   selectedUser: any;
+  comments: any[] = [];
+  newComment: string = '';
 
   constructor(private http : HttpClient,) { }
 
@@ -34,5 +36,28 @@ export class ScreenComponent implements OnInit {
   // Get post content by the title selected
   postContent(post: any){
     this.postSelected = post;
+    this.loadComments(post.id);
+  }
+  
+  // Load comments for the selected post
+  loadComments(postId: number) {
+    this.http.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`).subscribe((commentsResponse: any) => {
+      this.comments = commentsResponse;
+    });
+  }
+  
+  // Add a new comment
+  addComment() {
+    if (this.newComment.trim() && this.postSelected) {
+      const comment = {
+        postId: this.postSelected.id,
+        id: this.comments.length + 1,
+        name: 'New Comment',
+        email: 'user@example.com',
+        body: this.newComment
+      };
+      this.comments.push(comment);
+      this.newComment = '';
+    }
   }
 }

@@ -20,4 +20,35 @@
 <div *ngIf="postSelected" class="title">
   <h2>Post Details</h2>
   <div class="post-content">{{postSelected.body}}</div>
+  
+  <!-- Comment Section -->
+  <div class="comment-section">
+    <h3>Comments</h3>
+    
+    <!-- Add Comment Form -->
+    <div class="add-comment">
+      <textarea 
+        [(ngModel)]="newComment" 
+        placeholder="Write your comment here..."
+        class="comment-input"
+        rows="3"></textarea>
+      <button 
+        (click)="addComment()" 
+        class="btn btn-primary submit-comment"
+        [disabled]="!newComment.trim()">
+        Add Comment
+      </button>
+    </div>
+    
+    <!-- Display Comments -->
+    <div class="comments-list">
+      <div *ngFor="let comment of comments" class="comment-item">
+        <div class="comment-header">
+          <strong class="comment-name">{{comment.name}}</strong>
+          <span class="comment-email">{{comment.email}}</span>
+        </div>
+        <div class="comment-body">{{comment.body}}</div>
+      </div>
+    </div>
+  </div>
 </div>
