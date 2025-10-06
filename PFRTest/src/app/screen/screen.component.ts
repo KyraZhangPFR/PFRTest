@@ -22,7 +22,7 @@ export class ScreenComponent implements OnInit {
   }
   
   // Function to get all user's posts
-  navToUserPost(id) {
+  navToUserPost(id: number) {
     // Find and store the selected user
     this.selectedUser = this.users.find(user => user.id === id);
     // Get user's posts
