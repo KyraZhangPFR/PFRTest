@@ -20,4 +20,16 @@
 <div *ngIf="postSelected" class="title">
   <h2>Post Details</h2>
   <div class="post-content">{{postSelected.body}}</div>
+
+  <!-- Comments Section -->
+  <h3>Comments</h3>
+  <div class="comments-section">
+    <div *ngFor="let comment of postComments" class="comment-item">
+      <div class="comment-header">
+        <strong class="comment-name">{{comment.name}}</strong>
+        <span class="comment-email">({{comment.email}})</span>
+      </div>
+      <div class="comment-body">{{comment.body}}</div>
+    </div>
+  </div>
 </div>
