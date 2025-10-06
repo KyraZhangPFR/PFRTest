@@ -18,7 +18,7 @@
       <h1>Posts</h1>
     </div>
     <!-- Posts will be displayed here when a user is selected -->
-    <div *ngIf="screen && screen.userPosts" class="sidebar-posts">
+    <div *ngIf="screen?.userPosts" class="sidebar-posts">
       <div *ngFor="let post of screen.userPosts" 
            class="post-title-item"
            (click)="screen.postContent(post)"
