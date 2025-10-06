@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
+## Features
+
+- **User Selection**: Choose from a list of users to view their posts
+- **Post Display**: View all posts for a selected user in the sidebar
+- **Post Details**: Click on any post to see its full content
+- **Comments Section**: View and add comments on individual posts
+  - Displays existing comments from the API
+  - Add new comments using the text input form
+  - Real-time comment updates in the UI
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
