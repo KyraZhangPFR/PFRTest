@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { ScreenComponent } from './screen/screen.component';
+import { Component } from '@angular/core';
+import { Post } from './models/post.model';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,18 @@ import { ScreenComponent } from './screen/screen.component';
 })
 export class AppComponent {
   title = 'PFRTest';
-  
-  @ViewChild(ScreenComponent) screen: ScreenComponent;
+  currentPosts: Post[] = [];
+  selectedPost: Post | null = null;
+
+  onPostsLoaded(posts: Post[]): void {
+    this.currentPosts = posts;
+  }
+
+  onPostSelected(post: Post | null): void {
+    this.selectedPost = post;
+  }
+
+  onSidebarPostClicked(post: Post): void {
+    this.selectedPost = post;
+  }
 }

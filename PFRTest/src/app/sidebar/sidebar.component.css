@@ -1,0 +1,40 @@
+.sidebar {
+  position: absolute;
+  top: 100px;
+  left: 80%;
+  right: 0;
+  height: calc(100vh - 100px);
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  font-weight: 600;
+  overflow-y: auto;
+}
+
+.sidebar-content {
+  padding: 15px;
+  width: 100%;
+}
+
+.sidebar-title {
+  margin-top: 15px;
+}
+
+.sidebar-posts {
+  margin-top: 15px;
+}
+
+.post-title-item {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.post-title-item:hover {
+  background-color: var(--hover-opacity);
+}
+
+.post-title-item.active {
+  background-color: var(--primary-color);
+}
