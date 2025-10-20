@@ -68,14 +68,18 @@ describe('UserService', () => {
     });
 
     const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/users');
-    req.error(new ProgressEvent('error'));
+    req.error(new ErrorEvent('error'));
   });
 
   it('should update loading state', (done) => {
     const mockUsers: User[] = [];
+    const loadingStates: boolean[] = [];
 
     service.loading$.subscribe(loading => {
-      if (loading === false) {
+      loadingStates.push(loading);
+      if (loading === false && loadingStates.length > 1) {
+        expect(loadingStates).toContain(true);
+        expect(loadingStates).toContain(false);
         done();
       }
     });
