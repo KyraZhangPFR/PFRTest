@@ -1,38 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { User } from '../models/user.model';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-screen',
   templateUrl: './screen.component.html',
   styleUrls: ['./screen.component.css']
 })
-export class ScreenComponent implements OnInit {
-  users: any;
-  userPosts: any;
-  postSelected: any;
-  selectedUser: any;
+export class ScreenComponent implements OnInit, OnChanges {
+  users: User[] = [];
+  userPosts: Post[] = [];
+  postSelected: Post | null = null;
+  selectedUser: User | null = null;
+  loading = false;
+  error: string | null = null;
 
-  constructor(private http : HttpClient,) { }
+  @Input() selectedPostFromSidebar: Post | null = null;
+  @Output() postsLoaded = new EventEmitter<Post[]>();
+  @Output() postSelected$ = new EventEmitter<Post | null>();
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // Get all users information
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe(Response => {
-      this.users = Response;
+    this.loadUsers();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.selectedPostFromSidebar && this.selectedPostFromSidebar) {
+      this.postSelected = this.selectedPostFromSidebar;
+    }
+  }
+
+  private loadUsers(): void {
+    this.userService.loading$.subscribe(loading => this.loading = loading);
+    this.userService.error$.subscribe(error => this.error = error);
+
+    this.userService.getAllUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: (error) => {
+        console.error('Error loading users:', error);
+      }
     });
   }
-  
-  // Function to get all user's posts
-  navToUserPost(id: number) {
-    // Find and store the selected user
-    this.selectedUser = this.users.find(user => user.id === id);
-    // Get user's posts
-    this.http.get('https://jsonplaceholder.typicode.com/users/'+ id+ '/posts').subscribe(postResponse => {
-      this.userPosts = postResponse;
-      this.postSelected = null; // Reset selected post when changing user
+
+  navToUserPost(id: number): void {
+    this.selectedUser = this.users.find(user => user.id === id) || null;
+
+    this.userService.getUserPosts(id).subscribe({
+      next: (posts) => {
+        this.userPosts = posts;
+        this.postSelected = null;
+        this.postsLoaded.emit(posts);
+        this.postSelected$.emit(null);
+      },
+      error: (error) => {
+        console.error('Error loading posts:', error);
+      }
     });
-  }
-  // Get post content by the title selected
-  postContent(post: any){
-    this.postSelected = post;
   }
 }

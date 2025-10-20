@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <div class="sidebar-content">
+    <div class="sidebar-title">
+      <h1>Posts</h1>
+    </div>
+    <div *ngIf="posts && posts.length > 0" class="sidebar-posts">
+      <div *ngFor="let post of posts" 
+           class="post-title-item"
+           (click)="onPostClick(post)"
+           [class.active]="post === selectedPost">
+        {{post.title}}
+      </div>
+    </div>
+  </div>
+</div>

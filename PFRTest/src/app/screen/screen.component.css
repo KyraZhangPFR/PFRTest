@@ -8,16 +8,29 @@ button {
 }
 
 .dropdown {
-  color: #62867b;
-  border-color: #52998f;
+  color: var(--primary-color);
+  border-color: var(--border-color);
 }
 
 .post-content {
   display: flex;
   margin: 20px auto 32px;
   padding: 20px;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--background-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   flex-direction: column;
+}
+
+.error-message {
+  color: red;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: var(--border-radius);
+  background-color: #ffebee;
+}
+
+.loading-message {
+  padding: 10px;
+  margin: 10px 0;
 }
